@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Library</h1>
+        </div>
+        <div class="content">
+            <div class="content-header">
+                <p class="book-amount"></p>
+                <div class="btn-add-card">
+                    <button onclick="ShowForm()">Add book</button>
+                </div>
+            </div>
+            <div class="books-container">
+                
+            </div>
+        </div>
+    </div>
+    <div class="form-bg" onclick="HideForm()"></div>
+    <form class="" action="#" method="post">
+        <div class="title">
+            <h2>New book</h2>
+        </div>
+        <input type="text" name="book-title" id="book-title" placeholder="Title" required>
+        <input type="text" name="book-author" id="book-author" placeholder="Author" required>
+        <div class="pages">
+            <input type="number" name="book-pages" id="book-pages" min="1" placeholder="pages" onchange="ChangeMax()" required>
+            <input type="number" name="book-pages-readed" id="book-pages-readed" min="0" placeholder="readed" required>
+        </div>
+        <button id="btn-submit">Add book</button>
+    </form>
+</body>
+</html>
