@@ -16,8 +16,10 @@ const bookAmount = document.querySelector(".book-amount");
 let library = [];
 let editId = -1;
 
-function btnSubmitClicked(event){
-    event.preventDefault();
+function btnSubmitClicked(){
+    if(!titleInput.checkValidity() || !authorInput.checkValidity() || !pagesInput.checkValidity() || !pagesReadedInput.checkValidity()){
+        return;
+    }
     let book = new Book(titleInput.value, authorInput.value, pagesInput.value, pagesReadedInput.value, false, editId == -1 ? GetLastId() + 1 : editId);
     if(editId == -1){
         library.push(book);
@@ -202,14 +204,19 @@ function ToggleFavorite(e){
     UpdateBook(book);
 }
 
-function Book(title, author, pages, pagesReaded, favorite, id){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.pagesReaded = pagesReaded;
-    this.pecentReaded = (pagesReaded * 100 / pages).toFixed(2);
-    this.isFavorite = favorite;
-    this.id = id;  
+class Book {
+
+    constructor(title, author, pages, pagesReaded, favorite, id) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.pagesReaded = pagesReaded;
+        this.favorite = favorite 
+        this.pecentReaded = (pagesReaded * 100 / pages).toFixed(2);
+        this.isFavorite = favorite;
+        this.id = id;
+    }
+  
 }
 
 function GetLastId() {
