@@ -17,6 +17,7 @@ let library = [];
 let editId = -1;
 
 function btnSubmitClicked(){
+    //teste
     if(!titleInput.checkValidity() || !authorInput.checkValidity() || !pagesInput.checkValidity() || !pagesReadedInput.checkValidity()){
         return;
     }
